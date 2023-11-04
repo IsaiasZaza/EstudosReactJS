@@ -11,7 +11,7 @@ function Page() {
   return (
     <div>
     <h1 className="font-bold text-lg">Olá next</h1>
-    <p>algum texto</p>
+    <p>algum texo</p>
     <ul>
       {
        peopleList.map(person => 
