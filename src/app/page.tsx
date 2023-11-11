@@ -1,30 +1,24 @@
 "use client"
 
-import { Costume } from "./components/Costume";
+import { FormEvent, useState } from "react";
 
 function Page() {
-
-  const clickButton = () => alert("Clicou no botao 1");
-  const clickButton2 = () => alert("Clicou no botao 2");
-  const clickButton3 = () => alert("Clicou no botao 3");
-   
+  const [name, setName] = useState('');
+  const [alterar, setAlterar] = useState(false);
+  
+  const mostrar = () => {
+    setAlterar(!alterar);
+  }
 
   return (
-      <div className="container">
-        <Costume
-        label="Salve 1"
-        onClick={clickButton}
-        />
-        <Costume
-        label="Salve 2"
-        onClick={clickButton2}
-        />
-        <Costume
-        label="Salve 3"
-        onClick={clickButton3}
-        />
-      </div>
-    )
+    <div>
+      <input type="text" placeholder="digite" value={name} onChange={e => setName(e.target.value)}/>  
+      <button onClick={mostrar}>{alterar ? 'isaias tira por favor' : 'isaias mostra o nome por favor'}</button>
+      
+      { alterar &&
+      <p>Seu nome é {name ? name : 'ola querdidos'}</p>}
+    </div> 
+  )
     
 }
 
