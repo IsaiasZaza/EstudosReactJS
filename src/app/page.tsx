@@ -1,22 +1,35 @@
 "use client"
 
+import { Person } from "@/types/Person";
 import { FormEvent, useState } from "react";
 
 function Page() {
-  const [name, setName] = useState('');
-  const [alterar, setAlterar] = useState(false);
+   
+  const [alterar, setAlterar] = useState({name: '', sobrenome: '', place: 'Digite'})
+
+ 
+  const click = () => {
+    setAlterar({...alterar, name: '', sobrenome: '', place: 'Digite novamente'})
   
-  const mostrar = () => {
-    setAlterar(!alterar);
   }
+
 
   return (
     <div>
-      <input type="text" placeholder="digite" value={name} onChange={e => setName(e.target.value)}/>  
-      <button onClick={mostrar}>{alterar ? 'isaias tira por favor' : 'isaias mostra o nome por favor'}</button>
-      
-      { alterar &&
-      <p>Seu nome é {name ? name : 'ola querdidos'}</p>}
+      <input type="text" 
+      placeholder={alterar.place}
+      value={alterar.name}
+      onChange={e => setAlterar({...alterar, name: e.target.value})} 
+      />
+
+      <input type="text"
+      placeholder={alterar.place}
+      value={alterar.sobrenome}
+      onChange={e => setAlterar({...alterar, sobrenome: e.target.value })}  
+      />
+      <p>O nome todo do seu personagem é</p>
+      <p>{alterar.name} {alterar.sobrenome}</p>  
+      <button onClick={click}>eae</button>
     </div> 
   )
     
