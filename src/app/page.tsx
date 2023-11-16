@@ -3,6 +3,7 @@
 import { Person } from "@/types/Person";
 import { TodoItem } from "@/types/TodoItem";
 import { FormEvent, useState } from "react";
+import Frase from "./components/Frase";
 
 function Page() {
 
@@ -42,6 +43,7 @@ function Page() {
 
   return (
     <>
+    <Frase/>
       <div className="centro">
           <div>
             <h1>Lista de tarefas</h1>
