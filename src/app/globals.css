@@ -62,7 +62,7 @@ input{
 button{
   border-radius: 8px;
   text-align: center;
-  padding: 2px;
+  padding: 4px;
   transition: 1s;
   background-color: rgb(215, 236, 255);
 }
