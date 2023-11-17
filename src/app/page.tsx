@@ -1,19 +1,25 @@
 "use client"
 
 import { Person } from "@/types/Person";
-import { TodoItem } from "@/types/TodoItem";
 import { FormEvent, useState } from "react";
-import Frase from "./components/Frase";
+import { TodoItem } from "@/types/TodoItem";
 
 function Page() {
+
+  //seletor de dia
+  //const [valor, setValor] = useState("");
+  //const handleChange = (event: any) => {
+   //setValor(event.target.value);
+ // };
+  //possivel update
 
   const [itemInput, setItemInput] = useState('');
 
   //adicionar
   const [list, setList] = useState<TodoItem[]>([
-
-    { label: 'Fazer dever', checked: false },
-    { label: 'Fazer nada', checked: false }
+ 
+    { label: 'Comece a estudar', checked: false }
+    
 
   ]);
   const adicionarLi = () => {
@@ -36,14 +42,13 @@ function Page() {
   //ALTERAR
   const alterarCheck = (index: number) => {
     let newList = [...list];
-
     newList[index].checked = !newList[index].checked;
     setList(newList);
   }
-
   return (
     <>
-    <Frase/>
+  
+
       <div className="centro">
           <div>
             <h1>Lista de tarefas</h1>
@@ -55,6 +60,7 @@ function Page() {
                 value={itemInput}
                 onChange={e => setItemInput(e.target.value)}
               />
+    
               <button onClick={adicionarLi}>Adicionar</button>
             </div>
           </div>
@@ -65,7 +71,7 @@ function Page() {
           {list.map((item, index) =>
           (<li key={index}>
             <input onClick={() => alterarCheck(index)} type="checkbox" checked={item.checked} />
-            {item.label} - <button onClick={() => deleteItem(index)}>[ deletar ]</button></li>))}
+            {item.label} - <button onClick={() => deleteItem(index)}>deletar</button></li>))}
         </ul>
       </div>
      
